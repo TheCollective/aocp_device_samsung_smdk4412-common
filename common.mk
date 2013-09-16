@@ -65,8 +65,6 @@ PRODUCT_PACKAGES := \
     audio.a2dp.default \
     audio.primary.smdk4x12 \
     audio.usb.default \
-    camera.exynos4 \
-    Camera \
     com.android.future.usb.accessory \
     gralloc.exynos4 \
     hwcomposer.exynos4 \
@@ -150,7 +148,7 @@ PRODUCT_COPY_FILES += \
 # Graphics
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.opengles.version=131072 \
-    hwui.render_dirty_regions=false \
+    debug.hwui.render_dirty_regions=false \
     ro.bq.gpu_to_cpu_unsupported=1
 
 PRODUCT_TAGS += dalvik.gc.type-precise
@@ -166,5 +164,5 @@ TARGET_HAL_PATH := hardware/samsung/exynos4/hal
 TARGET_OMX_PATH := hardware/samsung/exynos/multimedia/openmax
 $(call inherit-product, hardware/samsung/exynos4x12.mk)
 
-# Include non-opensource parts if available
-$(call inherit-product-if-exists, vendor/samsung/smdk4412-common/common-vendor.mk)
+# Include non-opensource parts
+$(call inherit-product, vendor/samsung/smdk4412-common/common-vendor.mk)
